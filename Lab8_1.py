@@ -32,9 +32,15 @@ def win(player):
         for cols in range(3):
            if  board[rows][cols] == player and board[rows+1][cols+1] == player and board[rows+2][cols+2] == player or board[rows][cols] == player and board[rows-1][cols+1] == player and board[rows-2][cols+2] == player:
                return(True)
-           elif board[rows][cols] == player and board[rows][cols+1] == player and board[rows][cols+2] == player:
+           
+    for rows in range(6): 
+        for cols in range(4):
+           if board[rows][cols] == player and board[rows][cols+1] == player and board[rows][cols+2] == player:
                return(True)
-           elif board[rows][cols] == player and board[rows+1][cols] == player and board[rows+2][cols] == player:
+           
+    for rows in range(6): 
+        for cols in range(3):     
+           if board[rows][cols] == player and board[rows+1][cols] == player and board[rows+2][cols] == player:
                return(True)
 
 #--------------Main--------------#
