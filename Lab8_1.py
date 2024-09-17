@@ -54,7 +54,7 @@ while True:
     player = int(input('Enter slot (1-6) : '))
     play(board, player, 'player')
     create_board(board)
-    
+
     #Computer Turn
     com = rd.randint(1, 6)
     play(board, com, 'com')
