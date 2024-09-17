@@ -1,6 +1,5 @@
 #--------------library--------------#
 import random as rd
-
 #--------------Variable--------------#
 board =[['o|','o|','o|','o|','o|','o|'],
         ['o|','o|','o|','o|','o|','o|'],
@@ -8,14 +7,13 @@ board =[['o|','o|','o|','o|','o|','o|'],
         ['o|','o|','o|','o|','o|','o|'],
         ['o|','o|','o|','o|','o|','o|'],
         ['o|','o|','o|','o|','o|','o|']]
-
 #--------------Function--------------#
 def create_board(board):
     for i in reversed(board):
         for index,e in enumerate(i):
             print(e, end='')
         print()
-
+        
 def play(board, rows, player):
     player_select = rows - 1
     if player == 'player':
@@ -23,12 +21,12 @@ def play(board, rows, player):
             if board[rows][player_select] == 'o|':
                 board[rows][player_select] = 'P|'
                 break
-    elif player == 'com':
+    elif player == 'computer':
         for rows in range(6):
             if board[rows][player_select] == 'o|':
                 board[rows][player_select] = 'C|'
                 break
-
+            
 def win(player):
     for rows in range(6): 
         for cols in range(3):
@@ -42,22 +40,24 @@ def win(player):
 #--------------Main--------------#
 create_board(board)
 while True:
-    #Win
+    #Win  
     if win('P|'):
         print('Player Win!!!')
         break
     elif win('C|'):
         print('Computer Win!!!')
         break
-    
-    #Player Turn
+    #Player input condition
     player = int(input('Enter slot (1-6) : '))
-    play(board, player, 'player')
-    create_board(board)
-    
-    #Computer Turn
-    com = rd.randint(1, 6)
-    play(board, com, 'com')
-    print('Computer Select : ', com)
-    create_board(board)
-    
+    if player >= 7:
+        print('Number Over Limits')
+    else:
+        #Player Turn
+        play(board, player, 'player')
+        create_board(board)
+        #Computer Turn
+        com = rd.randint(1, 6)
+        play(board, com, 'computer')
+        print('Computer Select : ', com)
+        create_board(board)
+
