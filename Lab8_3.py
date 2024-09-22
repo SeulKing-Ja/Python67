@@ -14,14 +14,9 @@ def scan(board):
             if board[rows][cols] in scan_text:
                 scan_lst.append([board[rows][cols], rows+1,cols+1])
     return scan_lst
-def sort_scan(board):
-    scan_lst = scan(board)
-    order = {'K':0, 'M':1, 'I':2, 'T':3, 'L':4}
-    scan_lst.sort(key=lambda x: order[x[0]])
-    return scan_lst
 def allCase(board):
-    lst = sort_scan(board)
     res = []
+    lst = scan(board)
     for i in lst:
         if i[0] == 'K':
             for j in lst:
