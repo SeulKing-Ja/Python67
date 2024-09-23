@@ -13,8 +13,6 @@ def write_board(board):
             print()
         print(board[i], end='')
         
-
-
 #Main   
 board = create_board()
 write_board(board)
